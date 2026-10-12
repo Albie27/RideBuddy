@@ -1,0 +1,16 @@
+[
+  {"name": "Bike Kingdom Lenzerheide", "town": "Lenzerheide", "country": "CH", "lat": 46.73, "lng": 9.55, "features": ["lift", "jumps", "flow", "pumptrack"], "season": "", "website": "https://www.bikekingdom.ch"},
+  {"name": "Flims Laax", "town": "Laax", "country": "CH", "lat": 46.84, "lng": 9.25, "features": ["lift", "flow", "jumps"], "season": "", "website": "https://www.flimslaax.com"},
+  {"name": "Davos Klosters", "town": "Davos", "country": "CH", "lat": 46.80, "lng": 9.84, "features": ["lift", "flow"], "season": "", "website": "https://www.davos.ch"},
+  {"name": "Verbier Bikepark", "town": "Verbier", "country": "CH", "lat": 46.10, "lng": 7.23, "features": ["lift", "jumps", "flow"], "season": "", "website": "https://www.verbier.ch"},
+  {"name": "Champéry", "town": "Champéry", "country": "CH", "lat": 46.18, "lng": 6.87, "features": ["lift", "jumps"], "season": "", "website": "https://www.champery.ch"},
+  {"name": "Epic Bikepark Leogang", "town": "Leogang", "country": "AT", "lat": 47.44, "lng": 12.72, "features": ["lift", "jumps", "flow", "pumptrack"], "season": "", "website": "https://www.bikepark-leogang.com"},
+  {"name": "Saalbach", "town": "Saalbach", "country": "AT", "lat": 47.39, "lng": 12.64, "features": ["lift", "flow"], "season": "", "website": "https://www.saalbach.com"},
+  {"name": "Bikepark Schladming", "town": "Schladming", "country": "AT", "lat": 47.39, "lng": 13.69, "features": ["lift", "jumps", "flow"], "season": "", "website": "https://www.schladming-dachstein.at"},
+  {"name": "Serfaus Fiss Ladis", "town": "Serfaus", "country": "AT", "lat": 47.04, "lng": 10.60, "features": ["lift", "flow", "pumptrack"], "season": "", "website": "https://www.serfaus-fiss-ladis.at"},
+  {"name": "Bikepark Todtnau", "town": "Todtnau", "country": "DE", "lat": 47.83, "lng": 7.94, "features": ["lift", "jumps"], "season": "", "website": ""},
+  {"name": "Bikepark Albstadt", "town": "Albstadt", "country": "DE", "lat": 48.21, "lng": 9.02, "features": ["lift", "flow"], "season": "", "website": ""},
+  {"name": "Bikepark Geißkopf", "town": "Bischofsmais", "country": "DE", "lat": 48.94, "lng": 13.08, "features": ["lift", "jumps", "flow"], "season": "", "website": ""},
+  {"name": "Mottolino Livigno", "town": "Livigno", "country": "IT", "lat": 46.53, "lng": 10.15, "features": ["lift", "jumps", "flow"], "season": "", "website": ""},
+  {"name": "Kronplatz", "town": "Bruneck", "country": "IT", "lat": 46.74, "lng": 11.95, "features": ["lift", "flow"], "season": "", "website": ""}
+]

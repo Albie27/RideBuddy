@@ -1,0 +1,149 @@
+/* ---------- Colours and basics ---------- */
+:root {
+  --black: #000000;
+  --blue: #2A6BFF;
+  --green: #16D19A;
+  --green-text: #0B8A64;   /* darker green so text is easy to read */
+  --mist: #F4F7F9;         /* light grey for boxes */
+  --line: #E2E7EB;         /* thin lines */
+  --muted: #66717B;        /* grey text */
+  --gradient: linear-gradient(120deg, var(--blue), var(--green));
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: Archivo, Arial, sans-serif;
+  color: var(--black);
+  background: #fff;
+  display: grid;
+  grid-template-columns: 440px 1fr;   /* left panel + map */
+  overflow: hidden;
+}
+
+button, input { font: inherit; color: inherit; }
+svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- Left panel ---------- */
+.panel {
+  height: 100vh;
+  overflow-y: auto;
+  padding: 24px 26px;
+  border-right: 1px solid var(--line);
+  background: #fff;
+}
+
+.top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+
+.brand {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 26px; font-weight: 750; font-stretch: 125%; letter-spacing: -0.02em;
+  color: var(--black); text-decoration: none;
+}
+
+.search {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--mist); border-radius: 14px; padding: 12px 14px; color: var(--muted);
+}
+.search input { border: 0; background: none; outline: none; width: 100%; font-size: 16px; color: var(--black); }
+
+.label { font-size: 13px; font-weight: 600; color: var(--muted); margin: 16px 0 8px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border-radius: 999px;
+  border: 1px solid var(--line); background: #fff;
+  font-size: 14px; font-weight: 500; cursor: pointer;
+}
+.chip svg { width: 16px; height: 16px; }
+.chip.on { background: var(--black); border-color: var(--black); color: #fff; font-weight: 600; }
+.chip.on svg { stroke: var(--green); }
+
+.row { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
+.count { font-weight: 700; font-stretch: 115%; font-size: 17px; color: var(--green-text); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 12px 18px; border-radius: 12px; border: 1px solid var(--line);
+  background: #fff; font-weight: 600; font-size: 15px; cursor: pointer;
+  color: var(--black); text-decoration: none;
+}
+.btn.small { padding: 8px 12px; font-size: 14px; }
+.btn.main { background: var(--gradient); border: 0; color: #fff; }
+
+/* ---------- List of parks ---------- */
+.list { list-style: none; margin-top: 6px; }
+.park {
+  display: grid; grid-template-columns: 1fr auto; gap: 4px 12px;
+  padding: 14px 12px; margin: 0 -12px;
+  border-bottom: 1px solid var(--line); border-radius: 10px; cursor: pointer;
+}
+.park:hover { background: var(--mist); }
+.park.selected { background: var(--mist); box-shadow: inset 4px 0 0 var(--blue); }
+.park h3, .park .where, .park .icons { grid-column: 1; }
+.park h3 { font-size: 20px; font-weight: 700; font-stretch: 118%; line-height: 1.15; }
+.park .where { font-size: 14px; color: var(--muted); }
+.park .km { grid-row: 1 / span 3; grid-column: 2; align-self: center; font-weight: 700; font-stretch: 115%; color: var(--green-text); }
+
+.icons { display: flex; gap: 6px; margin-top: 4px; }
+.icon { width: 28px; height: 28px; border-radius: 8px; background: #EAF0F4; display: grid; place-items: center; }
+.icon svg { width: 17px; height: 17px; }
+
+.empty { color: var(--muted); padding: 20px 0; }
+.credits { font-size: 12px; color: var(--muted); margin-top: 24px; }
+
+/* ---------- Map ---------- */
+.mapwrap { position: relative; height: 100vh; }
+#map { width: 100%; height: 100%; background: #eef2f4; }
+
+/* Map pins */
+.pin {
+  width: 28px; height: 28px; background: var(--blue);
+  border: 3px solid #fff; border-radius: 50% 50% 50% 4px;
+  transform: rotate(-45deg); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.pin.selected { width: 42px; height: 42px; background: var(--gradient); }
+.me { width: 18px; height: 18px; border-radius: 50%; background: var(--black); border: 4px solid #fff; box-shadow: 0 0 0 6px rgba(42, 107, 255, 0.25); }
+
+/* ---------- Park card ---------- */
+.card {
+  position: absolute; right: 24px; bottom: 24px; z-index: 1000; width: 370px;
+  background: #fff; border: 1px solid var(--line); border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(20, 40, 60, 0.18); padding: 22px;
+}
+.card h2 { font-size: 32px; font-weight: 800; font-stretch: 118%; line-height: 1.05; margin-top: 10px; }
+.card .where { color: var(--muted); margin: 6px 0 14px; }
+.season { display: inline-block; background: rgba(22, 209, 154, 0.16); color: var(--green-text); font-weight: 600; font-size: 14px; padding: 5px 10px; border-radius: 6px; }
+.close { position: absolute; top: 12px; right: 14px; border: 0; background: none; font-size: 26px; cursor: pointer; color: var(--muted); }
+
+.featgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+.featgrid div { display: flex; align-items: center; gap: 10px; background: var(--mist); border-radius: 10px; padding: 10px 12px; font-weight: 500; font-size: 15px; }
+.featgrid div.no { opacity: 0.35; text-decoration: line-through; }
+.actions { display: flex; gap: 8px; }
+.actions .btn { flex: 1; }
+
+/* ---------- Phone layout ---------- */
+@media (max-width: 760px) {
+  body { display: block; }
+  .mapwrap { position: static; height: auto; }
+  #map { position: fixed; inset: 0; height: auto; }
+
+  /* the panel becomes a sheet at the bottom */
+  .panel {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+    height: 55vh; border: 0; border-radius: 22px 22px 0 0;
+    box-shadow: 0 -8px 30px rgba(20, 40, 60, 0.14); padding: 18px;
+  }
+  .card {
+    position: fixed; z-index: 1100;
+    left: 0; right: 0; bottom: 0; width: auto;
+    border-radius: 22px 22px 0 0; padding: 20px 18px 28px;
+  }
+  .card h2 { font-size: 30px; }
+  .brand { font-size: 22px; }
+  .chips { flex-wrap: nowrap; overflow-x: auto; }
+  .chip { white-space: nowrap; }
+}

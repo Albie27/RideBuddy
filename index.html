@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RideBuddy | Bike parks in Switzerland and around</title>
+  <meta name="description" content="All bike parks in Switzerland, Austria, Germany and Italy on one map.">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+
+  <!-- Font: Archivo from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
+
+  <!-- Leaflet: the free map library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Small icons we use again and again -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-lift" viewBox="0 0 24 24"><path d="M2 5l20-3M12 3.5V9"/><rect x="6" y="9" width="12" height="9" rx="2"/><path d="M6 14h12"/></symbol>
+    <symbol id="i-jumps" viewBox="0 0 24 24"><path d="M2 20h7c3 0 5-6 8-9l3 9h2"/><circle cx="17" cy="5" r="2"/></symbol>
+    <symbol id="i-flow" viewBox="0 0 24 24"><path d="M3 6c5 0 5 6 9 6s4 6 9 6"/></symbol>
+    <symbol id="i-pumptrack" viewBox="0 0 24 24"><path d="M2 16c2 0 2-5 5-5s3 5 5 5 2-5 5-5 3 5 5 5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+    <symbol id="i-near" viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></symbol>
+  </svg>
+
+  <!-- LEFT SIDE (on the phone: the sheet at the bottom) -->
+  <aside class="panel" id="panel">
+    <header class="top">
+      <a class="brand" href="./"><img src="logo.svg" alt="" width="36" height="36">ridebuddy</a>
+      <a class="btn small" id="suggest" href="#">+ Suggest a park</a>
+    </header>
+
+    <label class="search">
+      <svg><use href="#i-search"/></svg>
+      <input id="search" type="search" placeholder="Search a park or town" autocomplete="off">
+    </label>
+
+    <div class="label">Country</div>
+    <div class="chips" id="countries"></div>
+
+    <div class="label">The park has</div>
+    <div class="chips" id="features"></div>
+
+    <div class="row">
+      <div class="count" id="count"></div>
+      <button class="btn small" id="near"><svg><use href="#i-near"/></svg>Near me</button>
+    </div>
+
+    <ul class="list" id="list"></ul>
+
+    <p class="credits">Map tiles © Esri. A school project by Albert. Always check the park website before you go.</p>
+  </aside>
+
+  <!-- RIGHT SIDE: the map -->
+  <main class="mapwrap">
+    <div id="map"></div>
+
+    <!-- Info card for one park, hidden until you click a park -->
+    <section class="card" id="card" hidden>
+      <button class="close" id="close" aria-label="Close">×</button>
+      <div id="cardContent"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
